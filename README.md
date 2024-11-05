@@ -30,13 +30,13 @@ info about frontend<br>
   - Will retrieve details of a specific player from specific team
 - **Add New Player**
   - `POST /TeamName`
-  - Required: `first_name`, `age`, `email`, `team_name`
+  - Required: `first_name`, `age`, `email`
   - Example:
     ```json
     {
        "first_name": "John",
        "age": 12,
-       "email": "example@example.com,
+       "email": "example@example.com"
     }
     ```
 
