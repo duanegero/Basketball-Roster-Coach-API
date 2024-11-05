@@ -25,4 +25,7 @@ info about frontend<br>
 - **Get All Player(Team)**
   - `GET /TeamName`
   - Will return list of all players from specific team
+- **Get Player by ID**
+  - `Get/TeamName/:id`
+  - Will etrieve details of a specific player from specific team
   
