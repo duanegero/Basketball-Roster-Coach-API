@@ -83,7 +83,10 @@ info about frontend<br>
        "assistant_coach": "Frank"
      }
      ```
-  - **Delete a Coach**
+- **Delete a Coach**
     - `DELETE /coaches/:id`
     - Removes a coach from database.
 
+## Lincense
+
+This project is licensed under the MIT License - see the LICENSE file for details.
