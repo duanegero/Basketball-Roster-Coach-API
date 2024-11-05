@@ -43,6 +43,15 @@ info about frontend<br>
 - **Update a Player**
   - `PUT /TeamName/:id`
   - Updates information for a specific player by their TeamName and ID.
+  - Required: `first_name`, `age`, `email`
+  - Example:
+    ```json
+    {
+       "first_name": "John",
+       "age": 13,
+       "email": "john.new@example.com"
+    }
+    ```
 
 - **Delete a Player**
   - `DELETE /TeamName/:id`
