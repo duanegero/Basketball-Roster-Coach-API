@@ -18,7 +18,8 @@ This API will allow you to create, read, update and delete both players and coac
 ## Usage
 After starting the server you can access API at http://localhost:3000.<br>
 Use [Postman](https://www.postman.com/) to test API<br>
-info about frontend<br>
+### Frontend Repository
+[Basketball-Roster-Coach-API-Frontend](https://github.com/duanegero/Basketball-Roster-Coach-API-Frontend.git)
 
 ## Endpoints
 ### Players
