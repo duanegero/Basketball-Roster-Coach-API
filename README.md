@@ -34,10 +34,9 @@ info about frontend<br>
   - Example:
     ```json
     {
-       first_name: "John",
-       age: 12,
-       email: "example@example.com,
-       team_name: "exampleTeam"
+       "first_name": "John",
+       "age": 12,
+       "email": "example@example.com,
     }
     ```
 
