@@ -87,6 +87,6 @@ info about frontend<br>
     - `DELETE /coaches/:id`
     - Removes a coach from database.
 
-## Lincense
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
