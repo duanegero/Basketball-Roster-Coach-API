@@ -5,6 +5,7 @@ This API will allow you to create, read, update and delete both players and coac
 - [Installation](#installation)
 - [Usage](#usage)
 - [Endpoints](#endpoints)
+- [License](#license)
 
 
 ## Installation
@@ -46,3 +47,20 @@ info about frontend<br>
 - **Delete a Player**
   - `DELETE /TeamName/:id`
   - Removes a player from Team and database.
+
+### Coaches
+- **Get Coach by ID**
+  - `GET /:id`
+  - Will retrieve details of a specific Coach
+- **Add New Coach**
+    - `POST /`
+  - Required: `first_name`, `team`, `assistant_coach`
+  - Example:
+    ```json
+    {
+       "first_name": "Jane",
+       "team": "team One",
+       "assistant_coach": "James"
+    }
+    ```
+
