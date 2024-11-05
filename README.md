@@ -23,3 +23,6 @@ info about frontend<br>
 ### Players
 
 - **Get All Player(Team)**
+  - `GET /TeamName`
+  - Will return list of all players from specific team
+  
