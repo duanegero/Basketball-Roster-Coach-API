@@ -21,3 +21,5 @@ info about frontend<br>
 
 ## Endpoints
 ### Players
+
+- **Get All Player(Team)**
