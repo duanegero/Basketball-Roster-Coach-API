@@ -72,4 +72,15 @@ info about frontend<br>
        "assistant_coach": "James"
     }
     ```
+- **Update Coach**
+   - `PUT /:id`
+   - Updates information for a specific coach by ID.
+   - Example:
+    ```json
+    {
+       "first_name": "John",
+       "team": "exampleTeam",
+       "assistant_coach": "Frank"
+    }
+    ```
 
