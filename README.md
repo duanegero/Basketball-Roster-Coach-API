@@ -59,10 +59,10 @@ info about frontend<br>
 
 ### Coaches
 - **Get Coach by ID**
-  - `GET /:id`
+  - `GET /coaches/:id`
   - Will retrieve details of a specific Coach
 - **Add New Coach**
-    - `POST /`
+    - `POST /coaches`
   - Required: `first_name`, `team`, `assistant_coach`
   - Example:
     ```json
@@ -73,7 +73,7 @@ info about frontend<br>
     }
     ```
 - **Update Coach**
-   - `PUT /:id`
+   - `PUT /coaches/:id`
    - Updates information for a specific coach by ID.
    - Example:
      ```json
