@@ -24,10 +24,10 @@ info about frontend<br>
 
 - **Get All Player(Team)**
   - `GET /TeamName`
-  - Will return list of all players from specific team
+  - Will return list of all players from specific team.
 - **Get Player by ID**
   - `Get/TeamName/:id`
-  - Will retrieve details of a specific player from specific team
+  - Will retrieve details of a specific player from specific team.
 - **Add New Player**
   - `POST /TeamName`
   - Required: `first_name`, `age`, `email`
@@ -41,5 +41,8 @@ info about frontend<br>
     ```
 - **Update a Player**
   - `PUT /TeamName/:id`
-  -Updates information for a specific player by their TeamName and ID 
+  - Updates information for a specific player by their TeamName and ID.
 
+- **Delete a Player**
+  - `DELETE /TeamName/:id`
+  - Removes a player from Team and database.
