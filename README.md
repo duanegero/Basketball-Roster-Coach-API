@@ -76,11 +76,11 @@ info about frontend<br>
    - `PUT /:id`
    - Updates information for a specific coach by ID.
    - Example:
-    ```json
-    {
+     ```json
+     {
        "first_name": "John",
        "team": "exampleTeam",
        "assistant_coach": "Frank"
-    }
-    ```
+     }
+     ```
 
