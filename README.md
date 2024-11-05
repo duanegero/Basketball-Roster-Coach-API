@@ -40,6 +40,6 @@ info about frontend<br>
     }
     ```
 - **Update a Player**
-  -`PUT /TeamName/:id`
+  - `PUT /TeamName/:id`
   -Updates information for a specific player by their TeamName and ID 
 
