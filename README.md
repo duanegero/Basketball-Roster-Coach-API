@@ -9,5 +9,10 @@ This API will allow you to create, read, update and delete both players and coac
 1. Clone Repository:
    
    git clone https://github.com/duanegero/Basketball-Roster-Coach-API.git
-3. Install Dependencies
+2. Install Dependencies
+
    npm install
+
+3. Start Server
+
+   node index.js
