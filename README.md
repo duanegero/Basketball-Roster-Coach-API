@@ -39,4 +39,7 @@ info about frontend<br>
        "email": "example@example.com"
     }
     ```
+- **Update a Player**
+  -`PUT /TeamName/:id`
+  -Updates information for a specific player by their TeamName and ID 
 
