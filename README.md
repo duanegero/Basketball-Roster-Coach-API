@@ -83,4 +83,7 @@ info about frontend<br>
        "assistant_coach": "Frank"
      }
      ```
+  - **Delete a Coach**
+    - `DELETE /coaches/:id`
+    - Removes a coach from database.
 
