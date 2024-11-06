@@ -90,4 +90,4 @@ Use [Postman](https://www.postman.com/) to test API<br>
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.
