@@ -1,7 +1,7 @@
 const express = require('express'); //importing express module from npm
 const cors = require('cors'); //importing cors module from npm
 const app = express(); //setting up variable to handle express
-const PORT = process.env.PORT || 3000; //setting port number for server
+const PORT = process.env.PORT || 3001; //setting port number for server
 
 const teamOneRoutes = require('./routes/teamOne'); //importing team one route
 const teamTwoRoutes = require('./routes/teamTwo');

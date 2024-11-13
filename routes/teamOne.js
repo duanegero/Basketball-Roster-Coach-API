@@ -3,16 +3,16 @@ const router = express.Router(); //creating a router variable to handle the rout
 
 //array of objects, sample data
 let teamOne = [
-    { id: 1, first_name: 'name1', age: 10, email: 'test1@email.com', team_name: 'teamOne' },
-    { id: 2, first_name: 'name2', age: 11, email: 'test2@email.com', team_name: 'teamOne' },
-    { id: 3, first_name: 'name3', age: 10, email: 'test3@email.com', team_name: 'teamOne' },
-    { id: 4, first_name: 'name4', age: 12, email: 'test4@email.com', team_name: 'teamOne' },
-    { id: 5, first_name: 'name5', age: 10, email: 'test5@email.com', team_name: 'teamOne' },
-    { id: 6, first_name: 'name6', age: 11, email: 'test6@email.com', team_name: 'teamOne' },
-    { id: 7, first_name: 'name7', age: 10, email: 'test7@email.com', team_name: 'teamOne' },
-    { id: 8, first_name: 'name8', age: 12, email: 'test8@email.com', team_name: 'teamOne' },
-    { id: 9, first_name: 'name9', age: 11, email: 'test9@email.com', team_name: 'teamOne' },
-    { id: 10, first_name: 'name10', age: 10, email: 'test10@email.com', team_name: 'teamOne' }
+    { id: 1, first_name: 'name1', age: 10, email: 'test1@email.com', team_name: 'team1' },
+    { id: 2, first_name: 'name2', age: 11, email: 'test2@email.com', team_name: 'team1' },
+    { id: 3, first_name: 'name3', age: 10, email: 'test3@email.com', team_name: 'team1' },
+    { id: 4, first_name: 'name4', age: 12, email: 'test4@email.com', team_name: 'team1' },
+    { id: 5, first_name: 'name5', age: 10, email: 'test5@email.com', team_name: 'team1' },
+    { id: 6, first_name: 'name6', age: 11, email: 'test6@email.com', team_name: 'team1' },
+    { id: 7, first_name: 'name7', age: 10, email: 'test7@email.com', team_name: 'team1' },
+    { id: 8, first_name: 'name8', age: 12, email: 'test8@email.com', team_name: 'team1' },
+    { id: 9, first_name: 'name9', age: 11, email: 'test9@email.com', team_name: 'team1' },
+    { id: 10, first_name: 'name10', age: 10, email: 'test10@email.com', team_name: 'team1' }
 ]
 
 //defining the route for root URL
