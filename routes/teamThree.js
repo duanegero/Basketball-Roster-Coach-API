@@ -1,5 +1,7 @@
 const express = require('express') //importing express from npm
 const router = express.Router(); //creating a router variable to handle the route
+const pool = require('../db');
+
 
 let teamThree = [
     { id: 1, first_name: 'name1', age: 30, email: 'test1@email.com', team_name: 'team3' },
@@ -14,16 +16,30 @@ let teamThree = [
     { id: 10, first_name: 'name10', age: 30, email: 'test10@email.com', team_name: 'team3' }
 ]
 
-router.get('/', (req, res) => {
-    res.json(teamThree)
+//defining the route for root URL
+router.get('/', async (req, res) => {
+    //start try catch
+    try{
+        //sending query and storing the result in variable
+        const result = await pool.query('SELECT * FROM teamThree');
+        //sending result rows to client in json
+        res.json(result.rows);
+    } catch(error) {
+        //log any errors for troubleshoot
+        console.log("Error", error)
+        res.status(500).json({message: "Error"})
+    }
 })
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
     const playerId = parseInt(req.params.id); //parse the id from the URL
-    const player = teamThree.find((p) => p.id === playerId); //looking for player with id and assiging to variable
-    
-    if(player) res.json(player); //if found return json
-    else res.status(404).send('Player Not Found') //else send error 
+    try{
+        const result = await pool.query('SELECT * FROM teamOne WHERE id = $1', [playerId])
+        res.json(result.rows[0])
+    }catch(error){
+        console.log("Error", error);
+        res.status(500).json({message: "Error"})
+    }
 })
 
 router.post('/', (req, res) => {

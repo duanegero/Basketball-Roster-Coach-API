@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router();
+const pool = require('../db')
 
 let coachMaster = [
     {id: 1, first_name: 'coach1', team: 'teamOne', assistant_coach: 'assistant1'},
@@ -10,16 +11,32 @@ let coachMaster = [
     {id: 6, first_name: 'coach6', team: 'teamSix', assistant_coach: 'assistant6'},
 ]
 
-router.get('/', (req, res) => {
-    res.json(coachMaster)
+router.get('/', async (req, res) => {
+    try{
+        const result = await pool.query('SELECT * FROM coachMaster')
+        res.json(result.rows)
+    }catch(error){
+        console.log("Error", error)
+        res.status(500).json({message: "Error"})
+    }
+    
+    // res.json(coachMaster)
 })
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
     const coachId = parseInt(req.params.id);
-    const coach = coachMaster.find((c) => c.id === coachId)
 
-    if(coach) res.json(coach);
-    else res.status(404).send('Coach Not Found')
+    try{
+        const result = await pool.query('SELECT * FROM coachMaster WHERE id = $1', [coachId])
+        res.json(result.rows[0])
+    }catch(error){
+        console.log("Error", error)
+        res.status(500).json({message: "Error"})
+    }
+    // const coach = coachMaster.find((c) => c.id === coachId)
+
+    // if(coach) res.json(coach);
+    // else res.status(404).send('Coach Not Found')
 })
 
 router.post('/', (req, res) => {
