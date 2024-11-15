@@ -1,6 +1,6 @@
 const express = require('express') //importing express from npm
 const router = express.Router(); //creating a router variable to handle the route
-const pool = require('../db');
+const pool = require('../db'); //importing database connection pool from db
 
 //defining the route for to get all players 
 router.get('/', async (req, res) => {

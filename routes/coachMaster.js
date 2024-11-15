@@ -1,15 +1,6 @@
-const express = require('express')
-const router = express.Router();
-const pool = require('../db')
-
-let coachMaster = [
-    {id: 1, first_name: 'coach1', team: 'teamOne', assistant_coach: 'assistant1'},
-    {id: 2, first_name: 'coach2', team: 'teamTwo', assistant_coach: 'assistant2'},
-    {id: 3, first_name: 'coach3', team: 'teamThree', assistant_coach: 'assistant3'},
-    {id: 4, first_name: 'coach4', team: 'teamFour', assistant_coach: 'assistant4'},
-    {id: 5, first_name: 'coach5', team: 'teamFive', assistant_coach: 'assistant5'},
-    {id: 6, first_name: 'coach6', team: 'teamSix', assistant_coach: 'assistant6'},
-]
+const express = require('express') //importing express from npm
+const router = express.Router(); //creating a router variable to handle the route
+const pool = require('../db') //importing database connection pool from db
 
 //defining route to get all coaches
 router.get('/', async (req, res) => {

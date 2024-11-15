@@ -1,6 +1,6 @@
 const express = require('express') //importing express from npm
 const router = express.Router(); //creating a router variable to handle the route
-const pool = require('../db');
+const pool = require('../db'); //importing database connection pool from db
 
 //defining the route for root URL
 router.get('/', async (req, res) =>{
@@ -107,6 +107,5 @@ router.delete("/:id", async (req, res) => {
         res.status(500).json({message: "Error"})
     }
 });
-
 
 module.exports = router;
