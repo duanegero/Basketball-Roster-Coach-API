@@ -35,9 +35,12 @@ router.get('/', async (req, res) =>{
 router.get('/:id', async (req, res) => {
     const playerId = parseInt(req.params.id); //parse the id from the URL
     try{
+        //sending query and storing the result in variable
         const result = await pool.query('SELECT * FROM teamTwo WHERE id = $1', [playerId])
+        //send first row of query as json
         res.json(result.rows[0])
     }catch(error){
+        //log any errors for troubleshoot
         console.log("Error", error);
         res.status(500).json({message: "Error"})
     }
@@ -48,10 +51,32 @@ router.get('/:id', async (req, res) => {
     // else res.status(404).send('Player Not Found') //else send error 
 })
 
-router.post('/', (req, res) => {
-    const newPlayer = { id: teamTwo.length + 1, ...req.body }; //creating new varibale object with new player info
-    teamTwo.push(newPlayer); //adding new player to team one array
-    res.status(201).json(newPlayer) //sending status 
+router.post('/', async (req, res) => {
+    //getting the info from the request body
+    const {first_name, age, email} = req.body;
+
+    try{
+        //sending query find max id's in table
+        const maxId = await pool.query('SELECT COALESCE(MAX(id), 0) AS max_id FROM teamTwo;')
+        //setting new id to max +1
+        const newId = maxId.rows[0].max_id + 1;
+
+        //creating a query variable to use when send queries
+        const query = 
+            `INSERT INTO teamTwo(id, first_name, age, email, team_name)
+            VALUES ($1, $2, $3, $4, $5)
+            RETURNING *;`
+        ;
+
+        //sending a query with query variable and info from request body
+        const result = await pool.query(query, [newId, first_name, age, email, 'team2'])
+        //sending the json result back
+        res.status(201).json(result.rows[0]);
+    }catch(error){
+        //log any errors for troubleshoot
+        console.log('Error', error);
+        res.status(500).json({message: "Error"})
+    }
 })
 
 router.put('/:id', (req, res) => {
