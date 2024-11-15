@@ -19,8 +19,6 @@ router.get('/', async (req, res) => {
         console.log("Error", error)
         res.status(500).json({message: "Error"})
     }
-    
-    // res.json(coachMaster)
 })
 
 router.get('/:id', async (req, res) => {
@@ -66,14 +64,28 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.put('/:id', (req, res) => {
-    const coachId = parseInt(req.params.id)
-    const coachIndex = coachMaster.findIndex((c) => c.id === coachId)
-    if(coachIndex !== -1){
-        coachMaster[coachIndex] = {id:coachId, ...req.body}
-        res.json(coachMaster[coachIndex])
+router.put('/:id', async (req, res) => {
+    const coachId = parseInt(req.params.id); //parse the id from the URL
+    //getting the info from the request body
+    const {first_name, team, assistant_coach} = req.body;
+
+    try{
+        //creating a query variable to use when send queries
+        const query = `UPDATE coachMaster
+            SET first_name = $1, team = $2, assistant_coach = $3
+            WHERE id = $4
+            RETURNING *;`
+        ;
+
+        //sending a query with query variable and info from request body
+        const result = await pool.query(query,[first_name, team, assistant_coach, coachId])
+        //sending the json result back
+        res.status(200).json(result.rows[0]);
+    }catch(error){
+        //log any errors for troubleshoot
+        console.log('Error', error);
+        res.status(500).json({message: "Error"})
     }
-    else res.status(404).send('Coach Not Found')
 })
 
 router.delete("/:id", (req, res) => {

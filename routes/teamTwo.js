@@ -44,11 +44,6 @@ router.get('/:id', async (req, res) => {
         console.log("Error", error);
         res.status(500).json({message: "Error"})
     }
-
-    // const player = teamTwo.find((p) => p.id === playerId); //looking for player with id and assiging to variable
-    
-    // if(player) res.json(player); //if found return json
-    // else res.status(404).send('Player Not Found') //else send error 
 })
 
 router.post('/', async (req, res) => {
@@ -79,14 +74,29 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.put('/:id', (req, res) => {
-    const playerId = parseInt(req.params.id)
-    const playerIndex = teamTwo.findIndex((p) => p.id === playerId)
-    if(playerIndex !== -1){
-        teamTwo[playerIndex] = {id:playerId, ...req.body}
-        res.json(teamTwo[playerIndex])
+router.put('/:id', async (req, res) => {
+    const playerId = parseInt(req.params.id)//parse the id from the URL
+
+    //getting the info from the request body
+    const {first_name, age, email} = req.body;
+
+    try{
+        //creating a query variable to use when send queries
+        const query = `UPDATE teamTwo
+        SET first_name = $1, age = $2, email = $3, team_name = $4
+        WHERE id = $5
+        RETURNING *;`
+        ;
+
+        //sending a query with query variable and info from request body
+        const result = await pool.query(query, [first_name, age, email, 'team2', playerId])
+        //sending the json result back
+        res.status(200).json(result.rows[0]);
+    }catch(error){
+        //log any errors for troubleshoot
+        console.log('Error', error);
+        res.status(500).json({message: "Error"})
     }
-    else res.status(404).send('Player Not Found')
 })
 
 router.delete("/:id", (req, res) => {
