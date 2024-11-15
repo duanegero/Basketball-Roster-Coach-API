@@ -52,7 +52,8 @@ Once the server is running you can interact with the API through the available e
 
 ### Example Request (POST `/coaches`)
 
-```{
+```
+{
     "first_name": "John",
     "team": "test-team",
     "assistant_coach": "James"
