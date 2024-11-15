@@ -45,3 +45,16 @@ This is a backend API
 - POST `/coaches` - Add new coach to list
 - PUT `/coaches/:id` - Update coach information
 - DELETE `/coaches/:id` - Remove a coach
+
+## Usage
+
+Once the server is running you can interact with the API through the available endpoints. Here is an an example of how to add a new coach with `/coaches` POST end point using Postman or any HTTP client:
+
+### Example Request (POST `/coaches`)
+
+```{
+    "first_name": "John",
+    "team": "test-team",
+    "assistant_coach": "James"
+}
+```
