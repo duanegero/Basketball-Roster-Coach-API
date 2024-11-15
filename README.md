@@ -48,7 +48,7 @@ This is a backend API
 
 ## Usage
 
-Once the server is running you can interact with the API through the available endpoints. Here is an an example of how to add a new coach with `/coaches` POST end point using Postman or any HTTP client:
+Once the server is running you can interact with the API through the available endpoints. Here is an an example of how to add a new coach with `/coaches` POST endpoint using Postman or any HTTP client:
 
 ### Example Request (POST `/coaches`)
 
@@ -59,3 +59,7 @@ Once the server is running you can interact with the API through the available e
     "assistant_coach": "James"
 }
 ```
+
+## License
+
+This project is licensed under the MIT License.
