@@ -92,6 +92,7 @@ router.put('/:id', async (req, res) => {
     }
 })
 
+//defining route to delete player
 router.delete("/:id", async (req, res) => {
     const coachId = parseInt(req.params.id); //parse id from URL
 

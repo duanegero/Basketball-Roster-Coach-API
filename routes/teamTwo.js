@@ -2,20 +2,6 @@ const express = require('express') //importing express from npm
 const router = express.Router(); //creating a router variable to handle the route
 const pool = require('../db');
 
-//array of objects, sample data
-let teamTwo = [
-    { id: 1, first_name: 'name1', age: 20, email: 'test1@email.com', team_name: 'team2' },
-    { id: 2, first_name: 'name2', age: 21, email: 'test2@email.com', team_name: 'team2'  },
-    { id: 3, first_name: 'name3', age: 20, email: 'test3@email.com', team_name: 'team2'  },
-    { id: 4, first_name: 'name4', age: 22, email: 'test4@email.com', team_name: 'team2'  },
-    { id: 5, first_name: 'name5', age: 20, email: 'test5@email.com', team_name: 'team2'  },
-    { id: 6, first_name: 'name6', age: 21, email: 'test6@email.com', team_name: 'team2'  },
-    { id: 7, first_name: 'name7', age: 20, email: 'test7@email.com', team_name: 'team2'  },
-    { id: 8, first_name: 'name8', age: 22, email: 'test8@email.com', team_name: 'team2'  },
-    { id: 9, first_name: 'name9', age: 21, email: 'test9@email.com', team_name: 'team2'  },
-    { id: 10, first_name: 'name10', age: 20, email: 'test10@email.com', team_name: 'team2'  }
-]
-
 //defining the route for to get full team
 router.get('/', async (req, res) =>{
     //start try catch
