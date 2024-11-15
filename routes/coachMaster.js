@@ -11,6 +11,7 @@ let coachMaster = [
     {id: 6, first_name: 'coach6', team: 'teamSix', assistant_coach: 'assistant6'},
 ]
 
+//defining route to get all coaches
 router.get('/', async (req, res) => {
     try{
         const result = await pool.query('SELECT * FROM coachMaster')
@@ -21,6 +22,7 @@ router.get('/', async (req, res) => {
     }
 })
 
+//defining route to get coach by ID
 router.get('/:id', async (req, res) => {
     const coachId = parseInt(req.params.id);//parse the id from the URL
 
@@ -36,6 +38,7 @@ router.get('/:id', async (req, res) => {
     }
 })
 
+//defining route to make new coach
 router.post('/', async (req, res) => {
     //getting the info from the request body
     const {first_name, team, assistant_coach} = req.body;
@@ -64,6 +67,7 @@ router.post('/', async (req, res) => {
     }
 })
 
+//defining route to update coach
 router.put('/:id', async (req, res) => {
     const coachId = parseInt(req.params.id); //parse the id from the URL
     //getting the info from the request body
@@ -88,9 +92,23 @@ router.put('/:id', async (req, res) => {
     }
 })
 
-router.delete("/:id", (req, res) => {
-    coachMaster = coachMaster.filter((c) => c.id !== parseInt(req.params.id)); 
-    res.status(204).send();
+router.delete("/:id", async (req, res) => {
+    const coachId = parseInt(req.params.id); //parse id from URL
+
+    try{
+        //create a vaiable for the query
+        const query = `DELETE FROM coachMaster 
+        WHERE id = $1;`;
+
+        //send a query to database
+        const result = await pool.query(query, [coachId])
+        //return deleted id
+        res.status(204).json(result.rows[0]);
+    }catch(error){
+        //log any errors for troubleshoot
+        console.log('Error', error);
+        res.status(500).json({message: "Error"})
+    }
 });
 
 module.exports = router;

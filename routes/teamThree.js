@@ -16,7 +16,7 @@ let teamThree = [
     { id: 10, first_name: 'name10', age: 30, email: 'test10@email.com', team_name: 'team3' }
 ]
 
-//defining the route for root URL
+//defining the route for to get all players 
 router.get('/', async (req, res) => {
     //start try catch
     try{
@@ -31,6 +31,7 @@ router.get('/', async (req, res) => {
     }
 })
 
+//defining route to get player by ID 
 router.get('/:id', async (req, res) => {
     const playerId = parseInt(req.params.id); //parse the id from the URL
 
@@ -46,6 +47,7 @@ router.get('/:id', async (req, res) => {
     }
 })
 
+//defining route to add new player 
 router.post('/', async (req, res) => {
     //getting the info from the request body
     const {first_name, age, email} = req.body;
@@ -74,6 +76,7 @@ router.post('/', async (req, res) => {
     }
 })
 
+//defining route to update player
 router.put('/:id', async (req, res) => {
     const playerId = parseInt(req.params.id)//parse the id from the URL
 
@@ -99,9 +102,23 @@ router.put('/:id', async (req, res) => {
     }
 })
 
-router.delete("/:id", (req, res) => {
-    teamThree = teamThree.filter((p) => p.id !== parseInt(req.params.id)); 
-    res.status(204).send();
+router.delete("/:id", async (req, res) => {
+    const playerId = parseInt(req.params.id); //parse id from URL
+
+    try{
+        //create a vaiable for the query
+        const query = `DELETE FROM teamThree 
+        WHERE id = $1;`;
+
+        //send a query to database
+        const result = await pool.query(query, [playerId])
+        //return deleted id
+        res.status(204).json(result.rows[0]);
+    }catch(error){
+        //log any errors for troubleshoot
+        console.log('Error', error);
+        res.status(500).json({message: "Error"})
+    }
 });
 
 module.exports = router;
