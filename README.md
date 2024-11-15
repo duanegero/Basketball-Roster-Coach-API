@@ -30,4 +30,18 @@ This is a backend API
 
 ## API Endpoints
 
-- Get `/teamName` - Get all players
+### Player Endpoints
+
+- GET `/teamName` - Get all players
+- GET `/teamName/:id` - Get player from team
+- POST `/teamName` - Add new player to team
+- PUT `/teamName/:id` - Update player information
+- DELETE `/teamName/:id` - Remove player from team
+
+### Coaches Endpoints
+
+- GET `/coaches` - Get all coaches
+- GET `/coaches/:id` - Get single coach
+- POST `/coaches` - Add new coach to list
+- PUT `/coaches/:id` - Update coach information
+- DELETE `/coaches/:id` - Remove a coach
