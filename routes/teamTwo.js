@@ -7,7 +7,7 @@ router.get('/', async (req, res) =>{
     //start try catch
     try{
         //sending query and storing the result in variable
-        const result = await pool.query('SELECT * FROM teamTwo');
+        const result = await pool.query('SELECT * FROM teamTwo ORDER BY id');
         //sending result rows to client in json
         res.json(result.rows);
     } catch(error) {

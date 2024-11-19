@@ -5,7 +5,7 @@ const pool = require('../db') //importing database connection pool from db
 //defining route to get all coaches
 router.get('/', async (req, res) => {
     try{
-        const result = await pool.query('SELECT * FROM coachMaster')
+        const result = await pool.query('SELECT * FROM coachMaster ORDER BY id')
         res.json(result.rows)
     }catch(error){
         console.log("Error", error)
